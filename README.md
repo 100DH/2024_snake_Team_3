@@ -25,14 +25,21 @@
 먼저 코드를 실행하면 제일 먼저 볼 수 있는 부분은 바로 타이틀 화면의 추가입니다.
 타이틀 화면에서는 Snake Game이라는 문구로 어떤 게임인지 바로 알 수 있도록 하였고, createButton을 이용하여
 게임 시작 버튼, Easy, Normal, Hard의 3개의 버튼으로 난이도를 정할 수 있도록 하였고, Input 기능을 이용하여
-사용자의 이름을 입력받도록 하였습니다.
+사용자의 이름을 입력받도록 하였습니다. 그리고 Option 버튼을 추가하여 여러가지 설정을 할 수 있는 화면을 작성하였습니다.
+Option 화면에서는 봄, 여름, 가을, 겨울의 테마를 가진 4개의 테마 중 하나를 골라서 적용해 게임의 배경화면을 변경할 수 있고,
+colorPicker를 이용해서 뱀의 몸통 색깔을 마음대로 정할 수 있도록 코드를 작성했습니다.
+옵션 창을 벗어나 타이틀 화면으로 돌아가고 싶다면 옵션 버튼을 한번 더 누르면 됩니다.
+만약 아무런 설정도 건드리지 않고 게임을 시작할 시, 뱀의 몸통은 검정색, 배경 색깔을 회색으로 나오도록 했습니다.
 
 다음으로는 게임을 시작했을 경우인데요.
 난이도를 선택하지 않고 Start Game을 선택하면 기본 설정된 난이도인 Normal 난이도로 게임이 실행됩니다.
-게임을 시작하면 랜덤한 위치에 generateObstacles 함수를 이용하여 장애물을 생성하도록 했습니다.
+게임을 시작하면 랜덤한 위치에 generateObstacles 함수를 이용하여 지뢰 모양의 장애물을 생성하도록 했습니다.
 해당 장애물은 생성되는 food와 위치가 겹치지 않도록 코드를 작성하였으며, 장애물에 snake가 닿을 시, life가 한 개 줄어들도록 작성했습니다.
 life가 0이되면 Game Over가 출력되고 약 3초뒤에 타이틀 화면으로 다시 돌아가게 됩니다.
 난이도별 차이점은 기본으로 제공되는 life의 갯수, 게임 속도의 차이, 시야를 방해하는 방해물의 갯수 등이 있습니다.
+뱀이 잡아먹는 음식의 모양은 여러가지 도형들을 조합해서 쥐 모양을 만들었고,
+시야 방해물은 계속해서 날아다니는 물건이 무엇이 있을까 생각해보다가 풍선이 좋을 것 같아 풍선의 모양을 채택했습니다.
+
 
 Easy 난이도를 선택하면 느린 게임 속도와 5개의 life, 1개의 시야 방해물이 존재합니다.
 
@@ -51,16 +58,28 @@ Hard 난이도를 선택하면 빠른 게임 속도와 1개의 life, 4개의 시
 
 ## 꾸미기
 디자인적인 부분은 먼저 누가봐도 뱀 게임인것을 알 수 있도록 타이틀 화면에 뱀 캐릭터를 추가하였고, 뱀의 눈이 마우스의 움직임을 따라오도록 코드를 작성하였습니다.
+버튼의 색을 빨간색으로 하여 뱀이 혀를 내밀고 있는 것 처럼 보이도록 만들었습니다.
+타이틀 화면과 Option 화면에서는 뱀이 마우스의 커서를 따라 눈이 움직이도록 만들었고,
 Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 하여 허전하지 않도록 만들었습니다.
 
-게임을 시작한 후 뱀이 먹게되는 먹이는 쥐 캐릭터의 사진을 입혀놓았고, 장애물은 뱀의 천적인 매의 사진을 넣었습니다.
-게임이 진행되는동안 시야를 방해하는 방해물의 경우에도 마찬가지로 뱀의 천적인 매의 사진을 넣었고,
-배경에는 뱀에 풀숲을 헤쳐 돌아다니는것처럼 풀밭의 사진을 가져와서 넣었습니다.
+게임을 시작한 후 뱀이 먹게되는 먹이는 쥐의 모양을 만들었고, 장애물은 밟으면 체력이 깎이도록 지뢰의 모양을 만들었습니다.
+게임이 진행되는동안 시야를 방해하는 방해물의 경우에는 하늘을 날아다니는 것이 무엇이 있을까 생각하다가 풍선의 모양을 채택했습니다.
+배경은 Option 창으로 들어가서 Theme 1부터 4까지 4가지의 종류가 존재하는데요, 첫 번째 테마는 봄 느낌이 나도록 초록색 바탕에
+꽃들이 흩뿌려져 있는 모습을 만들었고, 두 번째 테마는 여름을 표현하기 위해 해변과 바다, 야자수를 넣었습니다.
+세 번째 테마는 가을의 모습으로 은행나무와 떨어진 낙엽을 표현하였고, 마지막 네 번째 테마는 겨울로, 눈사람과 눈, 나무등으로
+겨울을 표현해 주었습니다. 테마는 옵션 창에 들어가서 언제든지 원하는 것으로 변경이 가능하고, 선택하지 않을 시 배경은 회색 바탕으로 나오게 됩니다.
+
+또한 뱀의 몸통 색깔도 colorPicker를 통해서 마음대로 지정할 수 있도록 했기에 원하는 색깔을 지정한 후 게임을 진행하면 됩니다.
 
 
 ## 각자 맡은 부분
 20210815 백대현
-- 타이틀 화면, Pause, Game Over 화면 꾸미기( 뱀 캐릭터 만듦 )
+- 타이틀 화면, Pause, Game Over, option 화면 꾸미기( 마우스 커서를 따라 눈이 움직이는 뱀 캐릭터 )
+- 각 계절별 테마 제작
+- 4개의 테마 선택 기능 제작
+- 옵션 창 구현
+- 장애물과 먹이, 시야 방해물인 풍선의 디자인 제작
+- colorPicker를 이용하여 뱀의 몸통 색깔 선택 기능 구현
 - 게임 시작, 난이도 선택 버튼 생성
 - 타이틀 화면 출력되도록 제작
 - 장애물, 먹이 ,시야 방해물 , 배경 사진 입히기
@@ -84,25 +103,42 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
         let playing = false;
         let buttonClicked = false;
         let playfield = 600;
-        let difficulty = '';
+        let difficulty = ''; //난이도
         let obstacles = [];
-        let gameOverTime = 0;
-        let gamestop = false;
+        let gameOverTime = 0; //게임 오버 후 딜레이
+        let gamestop = false; //사망시 게임 중단
+        let pause = false; //게임 멈춤
+        
         let life = 0;
         let obstacleCount = 0; //장애물 
-        let img1;
-        let img2;
-        let img3;
-        let img4;
+        
         let lifehealing = false;
         let lifeHealingTimer = 0; // 생명력 회복 색상 유지 시간
         let lifeHealingDuration = 2000; // 생명력 회복 색상 유지 기간 (2초)
+        
+        let picker;
+        let snakeColor;
+        
         
         let startButton;
         let easyButton;
         let normalButton;
         let hardButton;
+        let optionButton;
+        
+        let themeButton1;
+        let themeButton2;
+        let themeButton3;
+        let themeButton4;
+        
         let nameInput; // 이름 입력 박스
+        
+        let inOptionsScreen = false;
+        
+        let springTheme = false;
+        let summerTheme = false;
+        let autumnTheme = false;
+        let winterTheme = false;
         
         let x1 = 0; 
         let x2 = 0; 
@@ -141,10 +177,6 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
         function setup() {
           createCanvas(playfield, 640);
           background(51);
-          img1 = loadImage("https://img.lovepik.com/png/20231112/falcon-clipart-cartoon-falcon-with-big-beak-cartoon-illustration-vector_565407_wh860.png");
-          img2 = loadImage("https://png.pngtree.com/thumb_back/fw800/background/20231230/pngtree-fresh-and-natural-realistic-seamless-green-lawn-grass-carpet-texture-with-image_13922800.png");
-          img3 = loadImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROAGblt_QHghz5AC0BBJgySlzzJKe0Kl-md_8tuS1t5A&s");
-          img4 = loadImage("https://png.pngtree.com/png-vector/20240407/ourlarge/pngtree-a-flying-hawk-bird-art-pic-png-image_12270473.png");
           s = new Snake();
           frameRate (10);
           pickLocation();
@@ -172,6 +204,51 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
           styleButton(hardButton);
           hardButton.mousePressed(function() { setDifficulty('hard');});
           
+          optionButton = createButton('Option'); //옵션 버튼 생성
+          optionButton.position(width /2 + 150 , height / 2 + 230);
+          styleButton(optionButton);
+          optionButton.mousePressed(function() {  inOptionsScreen = !inOptionsScreen; });
+          
+          themeButton1 = createButton('Theme1'); //봄 테마 버튼 생성
+          themeButton1.position(width /2  - 220, height / 2 - 80);
+          styleButton(themeButton1);
+          themeButton1.mousePressed(function() {  springTheme = !springTheme;
+                                                  summerTheme = false;
+                                                  autumnTheme = false;
+                                                  winterTheme = false;
+                                               });
+          
+          themeButton2 = createButton('Theme2'); //여름 테마 버튼 생성
+          themeButton2.position(width /2  - 220, height / 2 - 0);
+          styleButton(themeButton2);
+          themeButton2.mousePressed(function() {  summerTheme = !summerTheme;
+                                                  springTheme = false;
+                                                  autumnTheme = false;
+                                                  winterTheme = false;
+                                               });
+          
+          themeButton3 = createButton('Theme3'); //가을 테마 버튼 생성
+          themeButton3.position(width /2  - 220, height / 2 + 80);
+          styleButton(themeButton3);
+          themeButton3.mousePressed(function() {  autumnTheme = !autumnTheme;
+                                                  springTheme = false;
+                                                  summerTheme = false;
+                                                  winterTheme = false;
+                                               });
+          
+          themeButton4 = createButton('Theme4'); //겨울 테마 버튼 생성
+          themeButton4.position(width /2  - 220, height / 2 + 160);
+          styleButton(themeButton4);
+          themeButton4.mousePressed(function() {  winterTheme = !winterTheme;
+                                                  springTheme = false;
+                                                  summerTheme = false;
+                                                  autumnTheme = false;
+                                               });
+          
+          picker = createColorPicker('black'); //색상 선택기 생성
+          stylePicker(picker);
+          picker.position(300, 300);
+          snakeColor = color(255);
            // 이름 입력 박스 생성
           
           nameInput = createInput();
@@ -184,10 +261,12 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
         
         function draw() {
           
-          if (!playing && !buttonClicked) {
-            background(150,255,100);
-            fill(0);
-            rect(50,50,width-100,height-100);
+            
+          
+          if (!playing && !buttonClicked && !inOptionsScreen) {
+            background(127,127,127);
+            themeOutput(); //테마출력
+            drawborder(); //테두리그리기
             fill(255,0,0);
             rect(275,100,50,400);
             fill(150,255,100);
@@ -209,12 +288,23 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
             e1.display();
             e2.display();
             
+            startButton.show(); //버튼 다시 보이기 
+            easyButton.show();
+            normalButton.show();
+            hardButton.show();
+            nameInput.show();
+            optionButton.show();
             
+            themeButton1.hide();
+            themeButton2.hide();
+            themeButton3.hide();
+            themeButton4.hide();
+            picker.hide();
             
           }
           else if (playing) {
             background(51);
-            image(img2, 0, 0, width, height);
+            themeOutput(); //테마 출력
             scoreboard();
             textAlign(LEFT, LEFT);
         
@@ -226,10 +316,11 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
             s.show();
         
             fill(127, 55, 255);
-            image(img3,food.x, food.y, scl, scl);
+            drawRat(food.x, food.y, scl, scl);
             
             for (let i = 0; i < obstacles.length; i++) { //장애물 생성
-              image(img1, obstacles[i].x, obstacles[i].y, scl, scl)
+              obstacleRect(obstacles[i].x, obstacles[i].y, scl, scl)
+              
             }
             
             blind(); //블라인드 생성
@@ -255,8 +346,9 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
               lifehealing = false; // 생명력 회복 플래그 초기화
             }
             
-          } else if (!gameOverTime){
+          } else if (pause){
             // 일시정지 메시지 표시
+            
             background(150,255,100);
             fill(0);
             rect(50,50,width-100,height-100);
@@ -283,6 +375,23 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
             text(un,width / 2 , height / 2 + 100);
             
           }
+          
+          else if (inOptionsScreen) { //옵션 창 출력
+              
+              background(127,127,127);
+              themeOutput();  //테마 버튼 클릭시 테마 출력
+              drawborder(); //테두리 출력
+              drawOptionsScreen() //옵션창 뱀 출력
+              startButton.hide(); //시작 시 버튼 
+              easyButton.hide();
+              normalButton.hide();
+              hardButton.hide();
+              nameInput.hide(); 
+              handleOptionsScreen();
+              
+              
+          }
+          
           if (gameOverTime !== 0 && millis() > gameOverTime + 3000) {
             // 3초뒤 타잍틀 화면으로 이동
             gameOverTime = 0; 
@@ -290,7 +399,7 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
           }
         }
         
-        function styleButton(button) { //버튼 
+        function styleButton(button) { //버튼  스타일 결정
           button.style('background-color', 'red'); // 버튼 배경 색
           button.style('color', 'white'); // 버튼 글자 색
           button.style('font-size', '20px'); // 글자 크기
@@ -300,14 +409,21 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
           button.style('cursor', 'pointer'); // 커서 r
         }
         
+        function stylePicker(picker){ //색상 선택기의 스타일 
+          picker.style('width', '200px');
+          picker.style('height', '200px');
+          picker.style('border', 'none');
+          picker.style('border-radius', '10px');
+        }
+        
         function gameOver() { //게임오버
           gamestop = false;
           playing = false;
           obstacles = []; // 장애물 초기화
           let record = [un +" / "+ s.highscore];
-          background(150,255,100);
-          fill(0);
-          rect(50,50,width-100,height-100);
+          background(0,0,0);
+          drawborder();
+          
           fill(150,255,100);
           ellipse(310, 100, 300, 230);
           
@@ -330,11 +446,6 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
         
         function returnToTitle() { //타이틀로 돌아가기
           playing = false;
-          startButton.show(); //버튼 다시 보이기 
-          easyButton.show();
-          normalButton.show();
-          hardButton.show();
-          nameInput.show();
           buttonClicked = false; 
           obstacles = []; // 장애물 초기화
         }
@@ -364,7 +475,7 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
           normalButton.hide();
           hardButton.hide();
           nameInput.hide();
-          
+          optionButton.hide();
           
           
           if (!difficulty) { // 난이도 미 선택시
@@ -477,6 +588,7 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
           }
           else if (key === "p" || key === "P") { // P누르면 게임 일시정지
             playing = !playing;
+            pause = !pause;
             }
           }
         }
@@ -555,7 +667,7 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
         
           }
           this.show = function(){
-            fill(127, 200, 0);
+            fill(snakeColor);
             for (let i = 0; i < this.tail.length; i++) {
                 rect(this.tail[i].x, this.tail[i].y, scl, scl);
             }
@@ -590,7 +702,7 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
             push();
             translate(x1, height / 2 - dim * 1.5);
             fill(255);
-            image(img4,-dim / 2,  - dim * 1.5 + yOffset*5, dim, dim);
+            drawBallon(-dim / 2,  - dim * 1.5 + yOffset*5, dim, dim,255,0,0);
             pop();
             
             if(difficulty == "normal" || difficulty == "hard"){
@@ -598,7 +710,7 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
             push();
             translate(x2, height / 2 - dim / 2);
             fill(0);
-            image(img4,-dim / 2, -dim / 2 + yOffset*-10, dim, dim);
+            drawBallon(-dim / 2, -dim / 2 + yOffset*-10, dim, dim,255,140,0);
             pop();
             }
             
@@ -607,16 +719,455 @@ Pause와 Game over를 할 때에도 눈을 감은 뱀의 모습이 나오도록 
             push();
             translate(x3, height / 2 + dim / 2);
             fill(125);
-            image(img4,-dim / 2, -dim / 2 + yOffset*10, dim, dim);
+            drawBallon(-dim / 2, -dim / 2 + yOffset*10, dim, dim,30,144,255);
             pop();
             
             // 네 번째 블록
             push();
             translate(x4, height / 2 + dim / 2);
             fill(125);
-            image(img4,-dim / 2, -dim / 2 + yOffset*-5, dim, dim);
+            drawBallon(-dim / 2, -dim / 2 + yOffset*-5, dim, dim,148,0,211);
             pop();
             }
           
           pop();
+        }
+        
+        function drawOptionsScreen() { // 옵션 화면 배경
+            
+            fill(150,255,100);
+            ellipse(310, 100, 300, 230);
+            
+            e1.update(mouseX, mouseY);
+            e2.update(mouseX, mouseY);
+        
+            e1.display();
+            e2.display();
+          
+        }
+        
+        function drawborder() {
+          push();
+          noStroke();
+          fill(150,255,100);
+          rect(0,0,700,60)
+          rect(0,0,60,700)
+          rect(540,0,60,700)
+          rect(0,580,700,60)
+          pop();
+        }
+        
+        function handleOptionsScreen() { // 옵션 화면에서 발생하는 이벤트 처리
+          themeButton1.show();
+          themeButton2.show();
+          themeButton3.show();
+          themeButton4.show();
+          picker.show();
+          
+          
+        }
+        
+        function themeOutput() {
+          
+          if(springTheme == true){
+            drawSpringScene();
+          }
+          if(summerTheme == true){
+            drawSummerScene();
+          }
+          if(autumnTheme == true){
+            drawAutumnScene();
+          }
+          if(winterTheme == true){
+            drawWinterScene();
+          }
+        }
+        
+        function drawSpringScene() { //봄 테마 
+          push();
+          noStroke();
+          // 잔디 그리기
+          fill(173, 255, 90); // 푸른 잔디색
+          rect(0, 0, width, height); // 잔디
+        
+          // 꽃 그리기
+          drawFlower1(width/200+90, height/200+100);
+          drawFlower1(width/200+210, height/200+200);
+          drawFlower1(width/200+300, height/200+300);
+          drawFlower1(width/200+400, height/200+100);
+          drawFlower1(width/200+500, height/200+200);
+          drawFlower1(width/200+600, height/200+300);
+          drawFlower1(width/200+110, height/200+580);
+          drawFlower1(width/200+830, height/200+200);
+          drawFlower1(width/200+900, height/200+300);
+          
+          drawFlower2(width/200+80, height/200+500);
+          drawFlower2(width/200+200, height/200+300);
+          drawFlower2(width/200+300, height/200+400);
+          drawFlower2(width/200+400, height/200+500);
+          drawFlower2(width/200+500, height/200+200);
+          drawFlower2(width/200+700, height/200+300);
+          drawFlower2(width/200+0, height/200+400);
+          drawFlower2(width/200+110, height/200+250);
+          drawFlower2(width/200+900, height/200+500);
+          
+          drawFlower3(width/200+100, height/200+350);
+          drawFlower3(width/200+200, height/200+20);
+          drawFlower3(width/200+300, height/200+150);
+          drawFlower3(width/200+380, height/200+350);
+          drawFlower3(width/200+520, height/200+300);
+          drawFlower3(width/200+550, height/200+70);
+          drawFlower3(width/200+0, height/200+200);
+          drawFlower3(width/200+250, height/200+600);
+          drawFlower3(width/200+200, height/200+500);
+          drawFlower3(width/200+550, height/200+450);
+          pop();
+        }
+        
+        // 꽃 그리기 함수
+        function drawFlower1(x, y) {
+          push();
+          noStroke();
+          // 꽃잎
+          fill(255, 105, 180); // 분홍색
+          ellipse(x, y, 20, 20); // 중앙 꽃잎
+          ellipse(x - 15, y, 20, 20); // 왼쪽 꽃잎
+          ellipse(x + 15, y, 20, 20); // 오른쪽 꽃잎
+          ellipse(x, y - 15, 20, 20); // 위쪽 꽃잎
+          ellipse(x, y + 15, 20, 20); // 아래쪽 꽃잎
+          fill(255,255,0);
+          ellipse(x,y,20,20);
+          pop();
+        }
+        function drawFlower2(x, y) {
+          push();
+          noStroke();
+          // 꽃잎
+          fill(255, 0, 0); // 빨간색
+          ellipse(x, y, 20, 20); // 중앙 꽃잎
+          ellipse(x - 15, y, 20, 20); // 왼쪽 꽃잎
+          ellipse(x + 15, y, 20, 20); // 오른쪽 꽃잎
+          ellipse(x, y - 15, 20, 20); // 위쪽 꽃잎
+          ellipse(x, y + 15, 20, 20); // 아래쪽 꽃잎
+          fill(255,255,0);
+          ellipse(x,y,20,20);
+          pop();
+        }
+        
+        function drawFlower3(x, y) {
+          push();
+          noStroke();
+          // 꽃잎
+          fill(255, 105, 0); // 주황색
+          ellipse(x, y, 20, 20); // 중앙 꽃잎
+          ellipse(x - 15, y, 20, 20); // 왼쪽 꽃잎
+          ellipse(x + 15, y, 20, 20); // 오른쪽 꽃잎
+          ellipse(x, y - 15, 20, 20); // 위쪽 꽃잎
+          ellipse(x, y + 15, 20, 20); // 아래쪽 꽃잎
+          fill(255,255,0);
+          ellipse(x,y,20,20);
+          pop();
+        }
+        
+        function drawSummerScene() { //여름 테마 그리기
+          push();
+          noStroke();
+          // 하늘 그리기
+          background(0, 191, 255); // 하늘색
+        
+          // 바다 그리기
+          fill(65, 105, 225); // 파란색
+          rect(0, height / 2, width, height / 2); // 바다
+        
+          // 해변 그리기
+          fill(244, 164, 96); // 갈색
+          rect(0, height / 2, width, height / 7); // 해변
+        
+          // 태양 그리기
+          fill(255, 127, 0); // 주황
+          ellipse(width / 8, height / 8, 100, 100); // 태양
+        
+          // 코코넛 나무 그리기
+          drawCoconutTree(width / 2, height / 2);
+          drawCoconutTree(width / 6, height / 1.7);
+          drawCoconutTree(width /1.2, height / 1.8);
+          pop();
+        }
+        
+        function drawCoconutTree(x, y) {
+          push();
+          noStroke();
+          // 나무 줄기
+          fill(139, 69, 19); // 갈색
+          rect(x - 10, y - 200, 20, 200); // 줄기
+          
+          push();
+          // 나뭇잎
+          fill(50, 205, 50); // 녹색
+          ellipse(x + 50, y - 180, 80, 30); // 오른쪽 나뭇잎
+          ellipse(x - 50, y - 180, 80, 30); // 왼쪽 나뭇잎
+          push();
+          
+          ellipse(x-20, y - 230, 50, 120); // 윗부분 나뭇잎
+          
+          ellipse(x+20, y - 230, 50, 120); // 윗부분 나뭇잎
+          pop();
+          pop();
+          
+          // 코코넛
+          fill(139, 69, 19); // 갈색
+          ellipse(x - 20, y - 160, 30, 30); // 왼쪽 코코넛
+          ellipse(x + 20, y - 160, 30, 30); // 오른쪽 코코넛
+          fill(0);
+          ellipse(x - 25, y - 150, 7, 7);
+          ellipse(x - 15, y - 150, 7, 7);
+          
+          ellipse(x + 25, y - 150, 7, 7);
+          ellipse(x + 15, y - 150, 7, 7);
+          pop();
+        }
+        
+        function drawAutumnScene() { //가을 테마 그리기
+          push();
+          noStroke();
+          // 배경 그리기
+          background(255, 228, 181); // 밝은 갈색 배경
+        
+          // 땅 그리기
+          fill(139, 69, 19); // 갈색
+          rect(0, height * 3 / 4, width, height / 4); // 갈색 땅
+          // 나무 그리기
+          drawTree(width / 4, height * 3 / 4, 100, 250);
+          drawTree(width / 1.3, height * 3 / 4, 100, 250);
+          pop();
+        }
+        
+        function drawTree(x, y, trunkWidth, treeHeight) {
+          push();
+          noStroke();
+          // 나무 줄기 그리기
+          fill(139, 69, 19); // 갈색
+          rect(x - trunkWidth / 2, y - treeHeight, trunkWidth, treeHeight); // 나무 줄기
+        
+          // 나뭇잎 그리기
+          fill(255, 220, 0); // 주황색
+          ellipse(x, y - treeHeight - 30, 200, 200); // 나뭇잎
+        
+          // 작은 나뭇잎 그리기
+          fill(255, 220, 0); // 노란색
+          ellipse(x + 60, y - treeHeight + 50, 130, 100); // 작은 나뭇잎
+          ellipse(x - 60, y - treeHeight + 50, 130, 100); // 작은 나뭇잎
+          
+          ellipse(x - 60, y - treeHeight + 280, 20, 10); // 작은 나뭇잎
+          ellipse(x - 70, y - treeHeight + 260, 20, 10); // 작은 나뭇잎
+          ellipse(x - 30, y - treeHeight + 260, 20, 10); // 작은 나뭇잎
+          ellipse(x - 100, y - treeHeight + 320, 20, 10); // 작은 나뭇잎
+          ellipse(x - 10, y - treeHeight + 340, 20, 10); // 작은 나뭇잎
+          ellipse(x + 20, y - treeHeight + 300, 20, 10); // 작은 나뭇잎
+          ellipse(x + 50, y - treeHeight + 260, 20, 10); // 작은 나뭇잎
+          ellipse(x + 70, y - treeHeight + 300, 20, 10); // 작은 나뭇잎
+          ellipse(x + 100, y - treeHeight + 320, 20, 10); // 작은 나뭇잎
+          pop();
+          
+        }
+        
+        function drawWinterScene() {
+          // 배경 그리기
+          background(224,255,255); // 밝은 회색 배경
+          fill(248,248,255);
+          
+          push();
+          noStroke();
+          rect(0,height/2,width,height/2);
+          pop();
+          
+          // 눈 그리기
+          drawSnow(200, 100);
+          drawSnow(400, 200);
+          drawSnow(600, 300);
+          drawSnow(300, 150);
+          drawSnow(500, -200);
+          drawSnow(200, 50);
+          drawSnow(300, 100);
+          drawSnow(400, 300);
+          drawSnow(500, 350);
+          drawSnow(600, 300);
+          drawSnow(200, 350);
+          drawSnow(100, 150);
+          drawSnow(100, 350);
+          drawSnow(50, 200);
+          drawSnow(500, 100);
+          drawSnow(50, 200);
+          drawSnow(50, 200);
+          
+          // 나무 그리기
+          drawPineTree(100, 300);
+          drawPineTree(200, 500);
+          drawPineTree(500, 400);
+          
+          // 눈사람 그리기
+          drawSnowman(300, 200);
+        }
+        
+        function drawSnow(x, y) {
+          push();
+            fill(255); // 흰색 눈
+            noStroke();
+            ellipse(x, y, 10, 10); // 눈 하나
+            ellipse(x + 5, y + 5, 10, 10); // 눈 하나
+            ellipse(x - 5, y + 5, 10, 10); // 눈 하나
+          pop();
+        }
+        
+        function drawPineTree(x, y) {
+          push();
+          noStroke();
+          fill(139, 69, 19); // 갈색
+          rect(x-35, y+20, 70, 100); // 나무 줄기
+          fill(34, 139, 34); // 짙은 녹색
+          ellipse(x - 40, y , 100, 100); // 나뭇잎
+          ellipse(x + 40, y , 100, 100); // 나뭇잎
+          ellipse(x, y -50, 100, 100); // 나뭇잎
+          fill(255); // 흰색 눈
+          ellipse(x-60, y+5, 25, 10); // 눈 하나
+          ellipse(x-50, y+3, 25, 10); // 눈 하나
+          ellipse(x-40, y, 25, 10); // 눈 하나
+          ellipse(x-30, y+5, 25, 10); // 눈 하나
+          
+          ellipse(x+30, y, 25, 10); // 눈 하나
+          ellipse(x+20, y+3, 25, 10); // 눈 하나
+          ellipse(x+40, y+3, 25, 10); // 눈 하나
+          ellipse(x+20, y+5, 25, 10); // 눈 하나
+          
+          ellipse(x+10, y-62, 25, 10); // 눈 하나
+          ellipse(x-10, y-53, 25, 10); // 눈 하나
+          ellipse(x+5, y-55, 25, 10); // 눈 하나
+          ellipse(x, y-65, 25, 10); // 눈 하나
+          pop();
+        }
+        
+        function drawSnowman(x, y) { //눈사람 그리기
+          push();
+          noStroke();
+          fill(139,80,40);
+          rect(x+30,y+100,80,20); //팔
+          rect(x-110,y+100,80,20); //팔
+          fill(255); // 흰색
+          ellipse(x, y+50, 100, 100); // 머리
+          ellipse(x, y + 150, 150, 150); // 몸
+          fill(0);
+          ellipse(x-20, y+40, 20, 20); //눈
+          ellipse(x+20, y+40, 20, 20); //눈
+          fill(255,127,0);
+          rect(x,y+50,50,20); //코
+          pop();
+        }
+        
+        function obstacleRect(x,y,c,c) { //지뢰
+          // 검은색 네모 그리기
+          
+          fill(0);
+          rect(x, y, c, c);
+          fill(255,0,0);
+          push();
+          translate(10,10);
+          ellipse(x,y,c/2,c/2);  
+          pop();
+        }
+        function drawRat(x,y,c,c){ //먹이 그리기
+          // 쥐 그리기
+          
+          push();
+          noStroke();
+          fill(127,127,127);
+          translate(17,3);
+          ellipse(x,y,c,c) //회색 귀
+          pop();
+          
+          push();
+          noStroke();
+          fill(127,127,127);
+          translate(3,3);
+          ellipse(x,y,c,c) //회색 귀
+          pop();
+          
+          push();
+          noStroke();
+          fill(255,20,147);
+          translate(17,3);
+          ellipse(x,y,c/2,c/2) //분홍 귀
+          pop();
+          
+          push();
+          noStroke();
+          fill(255,20,147);
+          translate(3,3);
+          ellipse(x,y,c/2,c/2) //분홍 귀
+          pop();
+          
+          push();
+          noStroke();
+          translate(10,10);
+          fill(127, 127, 127); // 회색 머리
+          ellipse(x, y, c, c);
+          pop();
+          
+          push();
+          noStroke();
+          translate(5,8);
+          fill(0, 0, 0); // 눈
+          ellipse(x, y, c/4, c/4);
+          pop();
+          
+          push();
+          noStroke();
+          translate(15,8);
+          fill(0, 0, 0); // 눈
+          ellipse(x, y, c/4, c/4);
+          pop();
+          
+          push();
+          noStroke();
+          translate(10,13);
+          fill(0, 0, 0); // 코
+          ellipse(x, y, c/5, c/5);
+          pop();
+          
+          
+        }
+        
+        function drawBallon(x,y,c,c,r,g,b){ //풍선 그리기 
+          
+          push();
+          noStroke();
+          fill(0,0,0);
+          translate(-7,0);
+          rect(x,y,c/7,c*1.3); //손잡이
+          pop();
+          
+          
+          push();
+          noStroke();
+          fill(r,g,b);
+          ellipse(x,y,c,c); //풍선 머리
+          pop();
+          
+          push();
+          noStroke();
+          fill(r,g,b);
+          translate(11,40);
+          ellipse(x,y,c/4,c/5);
+          pop();
+          
+          push();
+          noStroke();
+          fill(r,g,b);
+          translate(-11,40);
+          ellipse(x,y,c/4,c/5);
+          pop();
+          
+        }
+        
+        function mouseClicked() {
+          snakeColor = picker.color();
         }
